@@ -1,10 +1,3 @@
-
-
 export default function FAQ() {
-    
-    return (
-        <div>
-            
-        </div>
-    )
+  return <section id="faq" className="scroll-mt-24" />;
 }

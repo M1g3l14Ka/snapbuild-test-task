@@ -1,10 +1,3 @@
-
-
 export default function UseCases() {
-    
-    return (
-        <div>
-            
-        </div>
-    )
+  return <section id="use-cases" className="scroll-mt-24" />;
 }

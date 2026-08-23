@@ -1,7 +1,5 @@
-
-
-export interface heroDataType {
-    id: number,
-    title: string,
-    url: string,
+export interface NavItem {
+  id: string;
+  label: string;
+  href: string;
 }

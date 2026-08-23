@@ -1,10 +1,3 @@
-
-
 export default function Process() {
-    
-    return (
-        <div>
-            
-        </div>
-    )
+  return <section id="process" className="scroll-mt-24" />;
 }

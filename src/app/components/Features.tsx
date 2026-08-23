@@ -1,10 +1,3 @@
-
-
 export default function Features() {
-    
-    return (
-        <div>
-            
-        </div>
-    )
+  return <section id="features" className="scroll-mt-24" />;
 }
