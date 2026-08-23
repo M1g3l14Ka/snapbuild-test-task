@@ -1,0 +1,72 @@
+name: Deploy Github Pages
+
+on:
+    push:
+        branches:
+            - main
+    workflow_dispatch:
+
+permissions: 
+    contents: read
+    pages: write
+    id-token: write
+
+concurrency: 
+    group: pages
+    cancel-in-progress: false
+
+env: 
+    NEXT_PUBLIC_BASE_PATH: /snapbuild-test-task
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+        timeout-minutes: 10
+
+        steps:
+            # получаем репозиторий
+            - name: Checkout repository
+              uses: actions/checkout@v4
+
+            # устанавливаем node.js
+            - name: Setup Node.js
+              uses: actions/setup-node@v4
+              with:
+                  node-version: "22"
+                  cache: npm
+
+            # настройка pages
+            - name: Configure Github Pages
+              uses: actions/configure-pages@v5
+
+            # устанавливаем зависимости
+            - name: Install dependencies
+              run: npm ci
+
+            # запускаем проверки
+            - name: Run checks
+              run: npm run check
+
+            # проверяем production-сборку
+            - name: Build application
+              run: npm run build
+
+            # загрузка результата
+            - name: Upload Github Pages artifact
+              uses: actions/upload-pages-artifact@v4
+              with:
+                path: ./out
+
+    # развертывание
+    deploy:
+        needs: build
+        runs-on: ubuntu-latest
+
+        environment:
+            name: github-pages
+            url: ${{ steps.deployment.outputs.page_url }}
+
+        steps:
+            - name: Deploy to GitHub Pages
+              id: deployment
+              uses: actions/deploy-pages@v5

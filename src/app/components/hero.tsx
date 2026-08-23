@@ -1,9 +1,9 @@
 import Image from "next/image"
 
-
-
 export default function Hero() {
     
+    const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+
     return (
         <div
             className="w-full z-10 h-21 rounded-2xl sticky top-0 flex justify-between items-center p-4 bg-white"
@@ -12,7 +12,7 @@ export default function Hero() {
                 <Image
                     width={35}
                     height={35}
-                    src='/snap-logo.webp'
+                    src={`${basePath}/snap-logo.webp`}
                     alt=""
                 />
                 <span className="text-2xl font-bold">снэпбилд</span>
