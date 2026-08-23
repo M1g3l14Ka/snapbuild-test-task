@@ -2,10 +2,10 @@ import Hero from "./components/hero";
 
 export default function Home() {
   return (
-    <div className="flex flex-col items-center justify-center font-sans bg-white flex-1">
+    <main className="min-h-screen w-full font-sans">
 
-    <Hero/>
+      <Hero/>
 
-    </div>
+    </main>
   );
 }
