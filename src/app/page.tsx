@@ -1,9 +1,11 @@
+import Compare from "./components/Compare";
 import FAQ from "./components/FAQ";
 import Features from "./components/Features";
 import Header from "./components/Header";
 import Hero from "./components/Hero";
 import Logos from "./components/Logos";
 import Process from "./components/Process";
+import Roadmap from "./components/Roadmap";
 import UseCases from "./components/UseCases";
 
 export default function Home() {
@@ -15,7 +17,9 @@ export default function Home() {
         <Logos />
         <Process />
         <UseCases />
+        <Compare />
         <Features />
+        <Roadmap />
         <FAQ />
       </main>
     </>
