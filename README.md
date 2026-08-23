@@ -1,36 +1,86 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Snapbuild — тестовое задание
 
-## Getting Started
+Продолжение продуктового лендинга [Снэпбилд](https://snapbuild.ru/) на Next.js. В проекте воспроизведены основные секции исходного сайта и добавлены пять новых содержательных блоков в том же визуальном языке.
 
-First, run the development server:
+## Опубликованная версия
+
+- [GitHub Pages](https://m1g3l14ka.github.io/snapbuild-test-task/)
+- [Исходный код](https://github.com/M1g3l14Ka/snapbuild-test-task)
+
+## Локальный запуск
+
+Требуется Node.js 22 и npm.
 
 ```bash
+npm ci
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+После запуска страница доступна по адресу [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Проверка качества и production-сборка:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run check
+npm run build
+```
 
-## Learn More
+## Стек
 
-To learn more about Next.js, take a look at the following resources:
+- Next.js 16 с App Router и статическим экспортом;
+- React 19;
+- TypeScript;
+- Tailwind CSS 4;
+- Lucide React для интерфейсных иконок;
+- GitHub Actions для CI и публикации на GitHub Pages.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Пять добавленных секций
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+1. **Аудитории** — сценарии для маркетинга, дизайна, продаж и продуктовой команды.
+2. **Интеграции** — место Снэпбилда в существующем рабочем процессе.
+3. **Эффект для команды** — ключевые результаты и продуктовые метрики.
+4. **Этапы внедрения** — путь от аудита дизайн-системы до масштабирования.
+5. **Форматы подключения** — пилот, командный и корпоративный варианты.
 
-## Deploy on Vercel
+Секции отличаются назначением и композицией: карточная сетка, каталог интеграций, крупные метрики, последовательность шагов и сравнительные варианты подключения.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Анализ стилистики
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Перед реализацией были изучены desktop- и mobile-версии исходного сайта, структура навигации и поведение интерактивных элементов. В продолжении интерфейса сохранены основные паттерны:
+
+- светло-серый фон и контрастные белые или чёрные поверхности;
+- контейнер шириной до 1440 px;
+- крупная плотная типографика с отрицательным межбуквенным интервалом;
+- большие скругления карточек и секций;
+- спокойная монохромная палитра;
+- заметные вертикальные интервалы между смысловыми блоками;
+- чёрные CTA-кнопки и минимальные hover-состояния;
+- перестроение сеток в одну колонку на мобильных устройствах.
+
+## Воспроизведённые части исходной страницы
+
+- адаптивная шапка и мобильное burger-меню;
+- первый экран и блок логотипов;
+- описание продукта и интерактивные вкладки возможностей;
+- сравнительная таблица;
+- блок безопасности;
+- дорожная карта;
+- FAQ, финальный CTA и расширенный подвал.
+
+Для вкладок возможностей используются 20 состояний: пять типов контента по четыре сценария. FAQ реализован нативными элементами `details`, поэтому работает без лишнего клиентского состояния.
+
+## Ограничения
+
+Лендинг не повторяет исходный сайт пиксель в пиксель: часть сложных анимаций и декоративных переходов упрощена, чтобы сохранить понятную структуру и надёжный статический экспорт. Ссылки на продукт и контакты ведут на публичные ресурсы Снэпбилда; серверная логика и закрытые функции платформы не воспроизводились.
+
+## Что можно улучшить
+
+При дополнительном времени можно добавить плавные переходы между изображениями во вкладках, анимации появления секций, более глубокую оптимизацию изображений и автоматические визуальные regression-тесты для основных разрешений.
+
+## Использование AI
+
+OpenAI Codex использовался для анализа исходного интерфейса, помощи с реализацией компонентов, проверки адаптивности, code review и настройки автоматических проверок. Все решения дополнительно проверялись командами ESLint, TypeScript и production-сборкой Next.js.
+
+## CI/CD
+
+Workflow `CI` запускает lint, typecheck и production-сборку при push и pull request в `main`. Отдельный workflow собирает статический экспорт с базовым путём `/snapbuild-test-task` и публикует каталог `out` на GitHub Pages.
