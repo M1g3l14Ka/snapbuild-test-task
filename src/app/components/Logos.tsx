@@ -25,7 +25,7 @@ export default function Logos() {
                 alt={logo.alt}
                 width={logo.width}
                 height={logo.height}
-                className="max-h-8 w-auto max-w-28"
+                className="h-auto max-h-8 w-auto max-w-28"
               />
             </div>
           ))}

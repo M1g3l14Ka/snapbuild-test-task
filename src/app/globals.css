@@ -126,5 +126,13 @@
   html {
     @apply font-sans;
     scroll-behavior: smooth;
-    }
+  }
+}
+
+@utility scrollbar-hidden {
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
 }

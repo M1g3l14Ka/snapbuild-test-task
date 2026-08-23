@@ -24,7 +24,7 @@ export default function UseCases() {
           Любой контент в фирменном стиле за считанные минуты
         </h2>
 
-        <div className="mt-10 flex gap-2 overflow-x-auto pb-2 sm:mt-12">
+        <div className="scrollbar-hidden mt-10 flex gap-2 overflow-x-auto pb-2 sm:mt-12">
           {useCases.map((item, index) => (
             <button
               key={item.id}

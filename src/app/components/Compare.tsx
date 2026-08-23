@@ -18,7 +18,7 @@ export default function Compare() {
           Вы получаете готовые маркетинговые материалы, а не ещё один сложный редактор.
         </p>
 
-        <div className="mt-12 overflow-x-auto rounded-[28px] bg-white p-2">
+        <div className="scrollbar-hidden mt-12 overflow-x-auto rounded-[28px] bg-white p-2">
           <table className="w-full min-w-[900px] border-separate border-spacing-0 text-left">
             <thead>
               <tr>
