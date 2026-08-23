@@ -1,6 +1,8 @@
 import Compare from "./components/Compare";
+import CTA from "./components/CTA";
 import FAQ from "./components/FAQ";
 import Features from "./components/Features";
+import Footer from "./components/Footer";
 import Header from "./components/Header";
 import Hero from "./components/Hero";
 import Logos from "./components/Logos";
@@ -21,7 +23,9 @@ export default function Home() {
         <Features />
         <Roadmap />
         <FAQ />
+        <CTA />
       </main>
+      <Footer />
     </>
   );
 }
