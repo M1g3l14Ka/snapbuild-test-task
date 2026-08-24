@@ -57,7 +57,7 @@ export default function UseCases() {
               type="button"
               onClick={() => selectCategory(index)}
               aria-pressed={categoryIndex === index}
-              className={`shrink-0 rounded-full px-5 py-3 text-sm font-medium transition-[background-color,color,box-shadow] duration-300 ${
+              className={`shrink-0 rounded-full px-5 py-3 text-sm font-medium transition-[background-color,color,box-shadow] duration-300 cursor-pointer ${
                 categoryIndex === index
                   ? "bg-[#050505] text-white"
                   : "bg-white text-neutral-600 hover:text-black hover:shadow-md"
@@ -76,7 +76,7 @@ export default function UseCases() {
                 type="button"
                 onClick={() => setItemIndex(index)}
                 aria-pressed={itemIndex === index}
-                className={`relative overflow-hidden border-b border-neutral-300 p-6 text-left transition-colors duration-300 sm:p-7 ${
+                className={`relative overflow-hidden border-b border-neutral-300 p-6 text-left transition-colors duration-300 sm:p-7 cursor-pointer ${
                   itemIndex === index ? "rounded-2xl border-transparent bg-white" : "hover:bg-white/50"
                 }`}
               >
