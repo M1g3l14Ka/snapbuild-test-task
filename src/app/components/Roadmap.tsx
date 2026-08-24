@@ -15,22 +15,45 @@ const roadmap = [
 
 export default function Roadmap() {
   return (
-    <section id="roadmap" className="scroll-mt-24 px-3 py-20 sm:px-4 sm:py-28">
-      <div className="mx-auto max-w-[1440px]">
-        <h2 className="max-w-4xl text-balance text-4xl font-semibold leading-tight tracking-[-0.04em] sm:text-6xl lg:text-7xl">
+    <section id="roadmap" className="scroll-mt-24 overflow-hidden py-24 sm:py-32">
+      <div className="page-shell">
+        <h2 className="section-title">
           Каждый день — новый релиз
         </h2>
         <p className="mt-5 text-lg text-neutral-600">Приоритизируем бэклог под реальные цели клиентов.</p>
+      </div>
 
-        <div className="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-          {roadmap.map(([title, description, date], index) => (
-            <article key={title} className="flex min-h-64 flex-col rounded-3xl bg-white p-6 sm:p-7">
-              <span className="text-sm text-neutral-400">{String(index + 1).padStart(2, "0")}</span>
-              <h3 className="mt-8 text-2xl font-semibold tracking-[-0.025em]">{title}</h3>
-              <p className="mt-3 leading-7 text-neutral-600">{description}</p>
-              <p className="mt-auto pt-8 text-sm font-medium">{date}</p>
-            </article>
-          ))}
+      <div className="scrollbar-hidden mt-20 overflow-x-auto px-[var(--page-gutter)] pb-8 snap-x snap-mandatory">
+        <div className="relative grid min-w-[3300px] grid-cols-12 lg:min-w-[4800px]">
+          <div className="absolute left-[calc(100%/24)] right-[calc(100%/24)] top-3 h-px bg-neutral-300" />
+          <div className="absolute left-[calc(100%/24)] top-3 h-px w-[66.6667%] bg-gradient-to-r from-[#ff715f] via-[#ff5ebb] to-[#9188ff]" />
+
+          {roadmap.map(([title, description, date], index) => {
+            const isActive = index <= 8;
+
+            return (
+              <article key={title} className="snap-start px-4 first:pl-0 last:pr-0 lg:px-7">
+                <div className="relative z-10 flex h-6 items-center justify-center">
+                  <span
+                    className={`size-3 rounded-full border-[3px] ${
+                      isActive
+                        ? "border-[#ff6c91] bg-[#ff6c91] shadow-[0_0_0_9px_rgba(255,108,145,0.16)]"
+                        : "border-neutral-500 bg-neutral-500 shadow-[0_0_0_9px_rgba(115,115,115,0.12)]"
+                    }`}
+                  />
+                </div>
+                <div className="pt-16">
+                  <h3 className={`text-xl font-medium tracking-[-0.02em] ${isActive ? "text-black" : "text-neutral-500"}`}>
+                    {title}
+                  </h3>
+                  <p className={`mt-4 max-w-sm leading-7 ${isActive ? "text-neutral-600" : "text-neutral-400"}`}>
+                    {description}
+                  </p>
+                  <p className={`mt-6 text-sm font-medium ${isActive ? "text-black" : "text-neutral-500"}`}>{date}</p>
+                </div>
+              </article>
+            );
+          })}
         </div>
       </div>
     </section>
