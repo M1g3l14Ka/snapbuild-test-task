@@ -66,7 +66,7 @@ export default function FAQ() {
             <Accordion key={columnIndex} defaultValue={columnIndex === 0 ? [questions[3].question] : []} className="gap-5">
               {column.map(({ question, answer }) => (
                 <AccordionItem key={question} value={question} className="rounded-[26px] border-0 bg-white px-6 sm:px-7">
-                  <AccordionTrigger className="min-h-20 items-center py-6 text-base font-medium hover:no-underline sm:text-lg [&_[data-slot=accordion-trigger-icon]]:size-6 [&_[data-slot=accordion-trigger-icon]]:text-black">
+                  <AccordionTrigger className="min-h-20 items-center py-6 text-base font-medium hover:no-underline sm:text-lg [&_[data-slot=accordion-trigger-icon]]:size-6 [&_[data-slot=accordion-trigger-icon]]:text-black cursor-pointer">
                     <span className="min-w-0 pr-3">{question}</span>
                   </AccordionTrigger>
                   <AccordionContent className="pb-7 pr-8 text-base leading-7 text-neutral-600">
