@@ -150,6 +150,19 @@
     background: var(--brand-gradient);
   }
 
+  .gradient-outline::before {
+    position: absolute;
+    inset: 0;
+    padding: 2px;
+    border-radius: inherit;
+    background: linear-gradient(157deg, #ff715f, #ff5ebb 58%, #9188ff);
+    content: "";
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    mask-composite: exclude;
+  }
+
   .primary-button {
     transition: background-color 300ms ease, box-shadow 300ms ease, color 300ms ease;
   }

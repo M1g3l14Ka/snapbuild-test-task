@@ -14,8 +14,8 @@ export default function Impact() {
         </h2>
 
         <div className="mt-16 grid gap-5 lg:grid-cols-2">
-          <article className="flex min-h-[360px] flex-col justify-between rounded-[32px] bg-[#050505] p-7 text-white sm:min-h-[440px] sm:p-10">
-            <p className="max-w-md text-lg leading-8 text-neutral-400">Среднее ускорение выпуска первого готового материала</p>
+          <article className="brand-gradient flex min-h-[360px] flex-col justify-between rounded-[32px] p-7 sm:min-h-[440px] sm:p-10">
+            <p className="max-w-md text-lg leading-8 text-neutral-700">Среднее ускорение выпуска первого готового материала</p>
             <div>
               <strong className="text-[clamp(5rem,15vw,11rem)] font-semibold leading-none tracking-[-0.07em]">10×</strong>
               <p className="mt-4 text-lg">от запроса до публикации</p>

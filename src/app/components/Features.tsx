@@ -22,16 +22,16 @@ export default function Features() {
   const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 
   return (
-    <section id="features" className="scroll-mt-24 px-3 py-24 sm:px-4 sm:py-32">
-      <div className="mx-auto rounded-[28px] bg-[#050505] px-[var(--page-gutter)] py-20 text-white sm:py-28">
+    <section id="features" className="scroll-mt-24 py-24 sm:py-32">
+      <div className="page-shell">
         <h2 className="section-title max-w-5xl">
           Безопасность без компромиссов
         </h2>
 
         <div className="mt-16 grid gap-5 lg:grid-cols-3">
           {securityCards.map((card) => (
-            <article key={card.title} className="overflow-hidden rounded-3xl bg-[#1a1a1a] p-4">
-              <div className="relative aspect-[6/5] overflow-hidden rounded-2xl bg-[#242424]">
+            <article key={card.title}>
+              <div className="relative aspect-[6/5] overflow-hidden rounded-3xl bg-neutral-100">
                 <Image
                   src={`${basePath}${card.image}`}
                   alt=""
@@ -40,9 +40,9 @@ export default function Features() {
                   className="object-cover"
                 />
               </div>
-              <div className="px-2 pb-4 pt-6">
+              <div className="pt-7">
                 <h3 className="text-2xl font-semibold tracking-[-0.025em]">{card.title}</h3>
-                <p className="mt-3 leading-7 text-neutral-400">{card.description}</p>
+                <p className="mt-3 max-w-md leading-7 text-neutral-600">{card.description}</p>
               </div>
             </article>
           ))}

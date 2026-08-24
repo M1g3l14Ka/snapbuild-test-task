@@ -35,17 +35,17 @@ export default function Plans() {
             <article
               key={plan.title}
               className={`flex min-h-[420px] flex-col rounded-[28px] p-6 sm:p-8 ${
-                plan.featured ? "bg-[#050505] text-white" : "bg-white"
+                plan.featured ? "brand-gradient" : "bg-white"
               }`}
             >
               <h3 className="text-3xl font-semibold tracking-[-0.03em]">{plan.title}</h3>
-              <p className={`mt-4 leading-7 ${plan.featured ? "text-neutral-400" : "text-neutral-600"}`}>
+              <p className="mt-4 leading-7 text-neutral-600">
                 {plan.description}
               </p>
-              <ul className={`mt-8 space-y-3 border-t pt-6 ${plan.featured ? "border-neutral-700" : "border-neutral-200"}`}>
+              <ul className="mt-8 space-y-3 border-t border-neutral-300 pt-6">
                 {plan.features.map((feature) => (
                   <li key={feature} className="flex items-center gap-3 text-sm">
-                    <span className={`size-1.5 rounded-full ${plan.featured ? "bg-white" : "bg-black"}`} />
+                    <span className="size-1.5 rounded-full bg-black" />
                     {feature}
                   </li>
                 ))}
@@ -54,9 +54,7 @@ export default function Plans() {
                 <p className="mb-5 text-sm font-medium">Стоимость — по запросу</p>
                 <a
                   href={demoUrl}
-                  className={`primary-button inline-flex rounded-xl px-5 py-3 text-sm font-medium ${
-                    plan.featured ? "bg-white text-black" : "bg-black text-white"
-                  }`}
+                  className="primary-button inline-flex rounded-xl bg-black px-5 py-3 text-sm font-medium text-white"
                 >
                   Обсудить подключение
                 </a>
