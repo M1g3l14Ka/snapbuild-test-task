@@ -1,12 +1,8 @@
 const integrations = [
-  ["GH", "GitHub", "Код и версии"],
-  ["GL", "GitLab", "Репозитории"],
-  ["FI", "Figma", "Дизайн-система"],
-  ["NO", "Notion", "Контент"],
-  ["SL", "Slack", "Уведомления"],
-  ["GD", "Google Drive", "Материалы"],
-  ["YC", "Yandex Cloud", "Инфраструктура"],
-  ["PC", "Private Cloud", "Закрытый контур"],
+  ["GH", "GitHub", "Репозиторий и код"],
+  ["GL", "GitLab", "Репозиторий и код"],
+  ["CI", "CI/CD", "Автоматизация сборки"],
+  ["PC", "Private Cloud", "Закрытая инфраструктура"],
 ];
 
 export default function Integrations() {
@@ -15,10 +11,10 @@ export default function Integrations() {
       <div className="mx-auto rounded-[32px] bg-white px-[var(--page-gutter)] py-16 sm:py-24">
         <div className="grid gap-8 lg:grid-cols-[1fr_0.8fr] lg:items-end">
           <h2 className="section-title max-w-5xl">
-            Встраивается в привычный процесс
+            Встраивается в существующую инфраструктуру
           </h2>
           <p className="max-w-xl text-lg leading-8 text-neutral-600 lg:justify-self-end">
-            Снэпбилд соединяет дизайн, контент и разработку, не заставляя команду менять рабочие инструменты.
+            GitHub, GitLab, CI/CD-процессы и развёртывание в закрытой корпоративной инфраструктуре.
           </p>
         </div>
 
