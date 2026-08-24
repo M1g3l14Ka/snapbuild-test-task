@@ -21,16 +21,16 @@ const plans = [
 
 export default function Plans() {
   return (
-    <section id="plans" className="scroll-mt-24 px-3 py-20 sm:px-4 sm:py-28">
-      <div className="mx-auto max-w-[1440px]">
-        <h2 className="max-w-5xl text-balance text-4xl font-semibold leading-tight tracking-[-0.04em] sm:text-6xl lg:text-7xl">
+    <section id="plans" className="scroll-mt-24 py-24 sm:py-32">
+      <div className="page-shell">
+        <h2 className="section-title max-w-6xl">
           Формат подключения под ваш масштаб
         </h2>
         <p className="mt-5 max-w-2xl text-lg leading-8 text-neutral-600">
           Начните с понятной задачи или сразу разверните решение для всей компании.
         </p>
 
-        <div className="mt-12 grid gap-4 lg:grid-cols-3">
+        <div className="mt-16 grid gap-5 lg:grid-cols-3">
           {plans.map((plan) => (
             <article
               key={plan.title}
@@ -54,7 +54,7 @@ export default function Plans() {
                 <p className="mb-5 text-sm font-medium">Стоимость — по запросу</p>
                 <a
                   href={demoUrl}
-                  className={`inline-flex rounded-xl px-5 py-3 text-sm font-medium transition-transform hover:-translate-y-0.5 ${
+                  className={`primary-button inline-flex rounded-xl px-5 py-3 text-sm font-medium ${
                     plan.featured ? "bg-white text-black" : "bg-black text-white"
                   }`}
                 >

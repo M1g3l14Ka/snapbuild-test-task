@@ -27,10 +27,10 @@ const audiences = [
 
 export default function Audiences() {
   return (
-    <section id="audiences" className="scroll-mt-24 px-3 py-20 sm:px-4 sm:py-28">
-      <div className="mx-auto max-w-[1440px]">
+    <section id="audiences" className="scroll-mt-24 py-24 sm:py-32">
+      <div className="page-shell">
         <div className="grid gap-6 lg:grid-cols-2 lg:items-end">
-          <h2 className="max-w-4xl text-balance text-4xl font-semibold leading-tight tracking-[-0.04em] sm:text-6xl lg:text-7xl">
+          <h2 className="section-title max-w-5xl">
             Одна система для всей команды
           </h2>
           <p className="max-w-xl text-lg leading-8 text-neutral-600 lg:justify-self-end">
@@ -38,7 +38,7 @@ export default function Audiences() {
           </p>
         </div>
 
-        <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-16 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {audiences.map((audience) => (
             <article key={audience.title} className="flex min-h-72 flex-col rounded-[28px] bg-white p-6 sm:p-7">
               <span className="text-sm text-neutral-400">{audience.number}</span>

@@ -6,14 +6,14 @@ const metrics = [
 
 export default function Impact() {
   return (
-    <section id="impact" className="scroll-mt-24 px-3 py-20 sm:px-4 sm:py-28">
-      <div className="mx-auto max-w-[1440px]">
+    <section id="impact" className="scroll-mt-24 py-24 sm:py-32">
+      <div className="page-shell">
         <p className="text-sm font-medium uppercase tracking-[0.16em] text-neutral-500">Эффект</p>
-        <h2 className="mt-4 max-w-5xl text-balance text-4xl font-semibold leading-tight tracking-[-0.04em] sm:text-6xl lg:text-7xl">
+        <h2 className="section-title mt-4 max-w-6xl">
           Команда делает больше, бренд не теряет качество
         </h2>
 
-        <div className="mt-12 grid gap-4 lg:grid-cols-2">
+        <div className="mt-16 grid gap-5 lg:grid-cols-2">
           <article className="flex min-h-[360px] flex-col justify-between rounded-[32px] bg-[#050505] p-7 text-white sm:min-h-[440px] sm:p-10">
             <p className="max-w-md text-lg leading-8 text-neutral-400">Среднее ускорение выпуска первого готового материала</p>
             <div>

@@ -31,7 +31,7 @@ function FooterColumn({ title, links }: FooterColumnProps) {
       <ul className="mt-5 space-y-3">
         {links.map(([label, href]) => (
           <li key={label}>
-            <a href={href} className="text-sm text-neutral-600 transition-colors hover:text-black">
+            <a href={href} className="text-link text-sm text-neutral-600 transition-colors hover:text-black">
               {label}
             </a>
           </li>
@@ -45,9 +45,9 @@ export default function Footer() {
   const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 
   return (
-    <footer className="px-3 pb-3 pt-16 sm:px-4 sm:pb-4 sm:pt-24">
-      <div className="mx-auto max-w-[1440px] rounded-[32px] bg-white px-6 py-10 sm:px-10 sm:py-12">
-        <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-[1.5fr_1fr_1fr_1fr]">
+    <footer className="page-shell pb-10 pt-24 sm:pb-14 sm:pt-32">
+      <div>
+        <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-[1.6fr_1fr_1fr_1fr] lg:gap-20">
           <div>
             <a href="#hero" aria-label="На главную" className="inline-flex items-center">
               <Image
@@ -70,7 +70,7 @@ export default function Footer() {
 
         <div className="mt-16 flex flex-col gap-3 border-t border-neutral-200 pt-6 text-sm text-neutral-500 sm:flex-row sm:items-center sm:justify-between">
           <p>© Сгенерировано в Снэпбилде. Все права защищены.</p>
-          <a href="mailto:hey@snapbuild.ru" className="transition-colors hover:text-black">
+          <a href="mailto:hey@snapbuild.ru" className="text-link transition-colors hover:text-black">
             hey@snapbuild.ru
           </a>
         </div>

@@ -9,23 +9,27 @@ const rows = [
 
 export default function Compare() {
   return (
-    <section id="compare" className="scroll-mt-24 px-3 py-20 sm:px-4 sm:py-28">
-      <div className="mx-auto max-w-[1440px]">
-        <h2 className="max-w-4xl text-balance text-4xl font-semibold leading-tight tracking-[-0.04em] sm:text-6xl lg:text-7xl">
+    <section id="compare" className="scroll-mt-24 py-24 sm:py-32">
+      <div className="page-shell">
+        <h2 className="section-title max-w-6xl">
           Почему команды выбирают Снэпбилд
         </h2>
         <p className="mt-5 max-w-2xl text-lg leading-8 text-neutral-600">
           Вы получаете готовые маркетинговые материалы, а не ещё один сложный редактор.
         </p>
 
-        <div className="scrollbar-hidden mt-12 overflow-x-auto rounded-[28px] bg-white p-2">
+        <div className="scrollbar-hidden mt-16 overflow-x-auto rounded-[28px] bg-white p-2">
           <table className="w-full min-w-[900px] border-separate border-spacing-0 text-left">
             <thead>
               <tr>
                 {columns.map((column, index) => (
                   <th
                     key={column}
-                    className={`p-5 text-sm font-medium ${index === 1 ? "rounded-t-2xl bg-[#050505] text-white" : "text-neutral-500"}`}
+                    className={`p-6 text-sm font-medium sm:py-10 sm:text-base ${
+                      index === 1
+                        ? "rounded-t-2xl border-x-2 border-t-2 border-[#ff769c] bg-gradient-to-r from-[#ff6b61] via-[#ff5ebf] to-[#8c7dff] bg-clip-text text-transparent"
+                        : "text-neutral-500"
+                    }`}
                   >
                     {column}
                   </th>
@@ -38,10 +42,12 @@ export default function Compare() {
                   {row.map((cell, cellIndex) => (
                     <td
                       key={`${row[0]}-${cellIndex}`}
-                      className={`border-t border-neutral-200 p-5 ${
+                      className={`border-t border-neutral-200 p-6 sm:py-10 ${
                         cellIndex === 0 ? "font-medium" : "text-neutral-600"
-                      } ${cellIndex === 1 ? "bg-[#050505] font-medium text-white" : ""} ${
-                        cellIndex === 1 && rowIndex === rows.length - 1 ? "rounded-b-2xl" : ""
+                      } ${cellIndex === 1 ? "border-x-2 border-[#ff769c] bg-white font-medium text-black" : ""} ${
+                        cellIndex === 1 && rowIndex === rows.length - 1
+                          ? "rounded-b-2xl border-b-2"
+                          : ""
                       }`}
                     >
                       {cell}

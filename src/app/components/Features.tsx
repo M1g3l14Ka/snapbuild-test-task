@@ -22,13 +22,13 @@ export default function Features() {
   const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 
   return (
-    <section id="features" className="scroll-mt-24 px-3 py-20 sm:px-4 sm:py-28">
-      <div className="mx-auto max-w-[1440px] rounded-[28px] bg-[#050505] px-5 py-16 text-white sm:px-8 sm:py-20 lg:px-12">
-        <h2 className="max-w-4xl text-balance text-4xl font-semibold leading-tight tracking-[-0.04em] sm:text-6xl lg:text-7xl">
+    <section id="features" className="scroll-mt-24 px-3 py-24 sm:px-4 sm:py-32">
+      <div className="mx-auto rounded-[28px] bg-[#050505] px-[var(--page-gutter)] py-20 text-white sm:py-28">
+        <h2 className="section-title max-w-5xl">
           Безопасность без компромиссов
         </h2>
 
-        <div className="mt-12 grid gap-4 lg:grid-cols-3">
+        <div className="mt-16 grid gap-5 lg:grid-cols-3">
           {securityCards.map((card) => (
             <article key={card.title} className="overflow-hidden rounded-3xl bg-[#1a1a1a] p-4">
               <div className="relative aspect-[6/5] overflow-hidden rounded-2xl bg-[#242424]">

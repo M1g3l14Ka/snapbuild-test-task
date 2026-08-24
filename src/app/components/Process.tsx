@@ -2,7 +2,7 @@ import Image from "next/image";
 
 const processCards = [
   {
-    title: "Дизайн-система — ядро платформы",
+    title: "Дизайн-система - ядро платформы",
     description: "Ваши компоненты, цвета и шрифты становятся единственным источником стиля.",
     image: "/assets/process/design-system.webp",
   },
@@ -22,10 +22,10 @@ export default function Process() {
   const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 
   return (
-    <section id="process" className="scroll-mt-24 px-3 py-20 sm:px-4 sm:py-28">
-      <div className="mx-auto max-w-[1440px]">
-        <div className="max-w-4xl">
-          <h2 className="text-balance text-4xl font-semibold leading-tight tracking-[-0.04em] sm:text-6xl lg:text-7xl">
+    <section id="process" className="scroll-mt-24 py-24 sm:py-32">
+      <div className="page-shell">
+        <div>
+          <h2 className="section-title">
             Одна платформа — весь маркетинг
           </h2>
           <p className="mt-5 max-w-2xl text-lg leading-8 text-neutral-600">
@@ -33,7 +33,7 @@ export default function Process() {
           </p>
         </div>
 
-        <div className="mt-12 grid gap-4 lg:grid-cols-3">
+        <div className="mt-16 grid gap-5 lg:grid-cols-3">
           {processCards.map((card) => (
             <article key={card.title} className="overflow-hidden rounded-[28px] bg-white p-4">
               <div className="relative aspect-[4/3] overflow-hidden rounded-2xl bg-neutral-100">

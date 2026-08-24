@@ -11,10 +11,10 @@ const integrations = [
 
 export default function Integrations() {
   return (
-    <section id="integrations" className="scroll-mt-24 px-3 py-20 sm:px-4 sm:py-28">
-      <div className="mx-auto max-w-[1440px] rounded-[32px] bg-white px-5 py-14 sm:px-8 sm:py-20 lg:px-12">
+    <section id="integrations" className="scroll-mt-24 px-3 py-24 sm:px-4 sm:py-32">
+      <div className="mx-auto rounded-[32px] bg-white px-[var(--page-gutter)] py-16 sm:py-24">
         <div className="grid gap-8 lg:grid-cols-[1fr_0.8fr] lg:items-end">
-          <h2 className="max-w-4xl text-balance text-4xl font-semibold leading-tight tracking-[-0.04em] sm:text-6xl lg:text-7xl">
+          <h2 className="section-title max-w-5xl">
             Встраивается в привычный процесс
           </h2>
           <p className="max-w-xl text-lg leading-8 text-neutral-600 lg:justify-self-end">
@@ -22,7 +22,7 @@ export default function Integrations() {
           </p>
         </div>
 
-        <div className="mt-12 grid grid-cols-2 gap-3 md:grid-cols-4">
+        <div className="mt-16 grid grid-cols-2 gap-4 md:grid-cols-4">
           {integrations.map(([shortName, name, purpose]) => (
             <article key={name} className="rounded-2xl bg-[#f5f5f6] p-4 sm:p-5">
               <span className="grid size-10 place-items-center rounded-xl bg-black text-xs font-semibold text-white">

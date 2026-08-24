@@ -7,10 +7,10 @@ const steps = [
 
 export default function Implementation() {
   return (
-    <section id="implementation" className="scroll-mt-24 px-3 py-20 sm:px-4 sm:py-28">
-      <div className="mx-auto max-w-[1440px]">
+    <section id="implementation" className="scroll-mt-24 py-24 sm:py-32">
+      <div className="page-shell">
         <div className="grid gap-6 lg:grid-cols-2 lg:items-end">
-          <h2 className="max-w-4xl text-balance text-4xl font-semibold leading-tight tracking-[-0.04em] sm:text-6xl lg:text-7xl">
+          <h2 className="section-title max-w-5xl">
             От дизайн-системы до первого запуска
           </h2>
           <p className="max-w-xl text-lg leading-8 text-neutral-600 lg:justify-self-end">

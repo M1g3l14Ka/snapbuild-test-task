@@ -13,16 +13,16 @@ export default function Header() {
   const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 
   return (
-    <header className="sticky top-0 z-50 px-3 pt-3 sm:px-4 sm:pt-4">
-      <div className="relative mx-auto flex h-16 w-full max-w-[1440px] items-center justify-between rounded-2xl bg-white/95 px-3 shadow-sm backdrop-blur sm:h-18 sm:px-6">
-        <a href="#hero" aria-label="На главную" className="inline-flex items-center">
+    <header className="fixed inset-x-0 top-0 z-50 px-3 pt-3 sm:px-4 sm:pt-5">
+      <div className="relative mx-auto flex h-16 w-full max-w-[1280px] items-center justify-between rounded-[20px] bg-white/85 px-4 shadow-[0_8px_30px_rgba(5,5,5,0.08)] backdrop-blur-xl sm:h-[74px] sm:px-6">
+        <a href="#hero" aria-label="На главную" className="inline-flex shrink-0 items-center">
           <Image
             src={`${basePath}/snapbuild-wordmark.svg`}
             width={153}
             height={22}
             alt="Снэпбилд"
             priority
-            className="h-[18px] w-auto sm:h-[22px]"
+            className="h-5 w-auto sm:h-[22px]"
           />
         </a>
 
@@ -31,7 +31,7 @@ export default function Header() {
             <a
               key={item.id}
               href={item.href}
-              className="text-sm text-neutral-700 transition-colors hover:text-black"
+              className="text-link text-sm text-neutral-700 transition-colors duration-300 hover:text-black"
             >
               {item.label}
             </a>
@@ -41,7 +41,7 @@ export default function Header() {
         <div className="flex items-center gap-1 sm:gap-3">
           <a
             href={builderUrl}
-            className="rounded-xl bg-[#050505] px-3 py-2.5 text-xs font-medium text-white transition-transform hover:-translate-y-0.5 sm:px-5 sm:py-3 sm:text-sm"
+            className="primary-button shrink-0 rounded-xl bg-[#050505] px-3 py-2.5 text-xs font-medium text-white hover:bg-black/90 sm:px-5 sm:py-3 sm:text-sm"
           >
             Начать сейчас
           </a>
@@ -51,7 +51,7 @@ export default function Header() {
             aria-label={isMenuOpen ? "Закрыть меню" : "Открыть меню"}
             aria-expanded={isMenuOpen}
             onClick={() => setIsMenuOpen((value) => !value)}
-            className="grid size-10 place-items-center rounded-xl transition-colors hover:bg-neutral-100 sm:size-11 lg:hidden"
+            className="grid size-10 shrink-0 place-items-center rounded-xl transition-colors duration-300 hover:bg-neutral-100 sm:size-11 lg:hidden"
           >
             {isMenuOpen ? <X size={24} /> : <Menu size={26} />}
           </button>
