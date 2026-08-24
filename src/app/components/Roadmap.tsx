@@ -1,3 +1,7 @@
+"use client";
+
+import { PointerEvent as ReactPointerEvent, useEffect, useRef, useState } from "react";
+
 const roadmap = [
   ["Сайты за 5 минут", "Генерация корпоративных сайтов по дизайн-системе.", "Декабрь, 2025"],
   ["Консистентные AI-иллюстрации", "Единый визуальный стиль через фирменные пресеты.", "Январь, 2026"],
@@ -14,16 +18,95 @@ const roadmap = [
 ];
 
 export default function Roadmap() {
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const dragRef = useRef({ active: false, startX: 0, scrollLeft: 0 });
+  const [canScrollLeft, setCanScrollLeft] = useState(false);
+  const [canScrollRight, setCanScrollRight] = useState(true);
+
+  function updateControls() {
+    const scroller = scrollRef.current;
+    if (!scroller) return;
+
+    setCanScrollLeft(scroller.scrollLeft > 4);
+    setCanScrollRight(scroller.scrollLeft < scroller.scrollWidth - scroller.clientWidth - 4);
+  }
+
+  useEffect(() => {
+    updateControls();
+    window.addEventListener("resize", updateControls);
+    return () => window.removeEventListener("resize", updateControls);
+  }, []);
+
+  function scroll(direction: -1 | 1) {
+    const scroller = scrollRef.current;
+    if (!scroller) return;
+
+    scroller.scrollBy({ left: direction * Math.min(scroller.clientWidth * 0.8, 900), behavior: "smooth" });
+  }
+
+  function startDrag(event: ReactPointerEvent<HTMLDivElement>) {
+    if (event.pointerType !== "mouse" || event.button !== 0) return;
+
+    const scroller = event.currentTarget;
+    dragRef.current = { active: true, startX: event.clientX, scrollLeft: scroller.scrollLeft };
+    scroller.setPointerCapture(event.pointerId);
+  }
+
+  function moveDrag(event: ReactPointerEvent<HTMLDivElement>) {
+    if (!dragRef.current.active) return;
+
+    event.currentTarget.scrollLeft = dragRef.current.scrollLeft - (event.clientX - dragRef.current.startX);
+  }
+
+  function stopDrag(event: ReactPointerEvent<HTMLDivElement>) {
+    if (!dragRef.current.active) return;
+
+    dragRef.current.active = false;
+    event.currentTarget.releasePointerCapture(event.pointerId);
+    updateControls();
+  }
+
   return (
     <section id="roadmap" className="scroll-mt-24 overflow-hidden py-24 sm:py-32">
-      <div className="page-shell">
-        <h2 className="section-title">
-          Каждый день — новый релиз
-        </h2>
-        <p className="mt-5 text-lg text-neutral-600">Приоритизируем бэклог под реальные цели клиентов.</p>
+      <div className="page-shell flex flex-col gap-8 sm:flex-row sm:items-end sm:justify-between">
+        <div>
+          <h2 className="section-title">
+            Каждый день — новый релиз
+          </h2>
+          <p className="mt-5 text-lg text-neutral-600">Приоритизируем бэклог под реальные цели клиентов.</p>
+        </div>
+        <div className="flex items-center gap-3">
+          <span className="mr-2 hidden text-sm text-neutral-500 lg:inline">Тяните дорожную карту</span>
+          <button
+            type="button"
+            onClick={() => scroll(-1)}
+            disabled={!canScrollLeft}
+            aria-label="Прокрутить дорожную карту назад"
+            className="primary-button grid size-12 place-items-center rounded-full bg-white text-2xl disabled:cursor-not-allowed disabled:opacity-35"
+          >
+            ←
+          </button>
+          <button
+            type="button"
+            onClick={() => scroll(1)}
+            disabled={!canScrollRight}
+            aria-label="Прокрутить дорожную карту вперёд"
+            className="primary-button grid size-12 place-items-center rounded-full bg-black text-2xl text-white disabled:cursor-not-allowed disabled:opacity-35"
+          >
+            →
+          </button>
+        </div>
       </div>
 
-      <div className="scrollbar-hidden mt-20 overflow-x-auto px-[var(--page-gutter)] pb-8 snap-x snap-mandatory">
+      <div
+        ref={scrollRef}
+        onScroll={updateControls}
+        onPointerDown={startDrag}
+        onPointerMove={moveDrag}
+        onPointerUp={stopDrag}
+        onPointerCancel={stopDrag}
+        className="scrollbar-hidden mt-20 cursor-grab touch-pan-x select-none overflow-x-auto px-[var(--page-gutter)] pb-8 active:cursor-grabbing snap-x snap-mandatory"
+      >
         <div className="relative grid min-w-[3300px] grid-cols-12 lg:min-w-[4800px]">
           <div className="absolute left-[calc(100%/24)] right-[calc(100%/24)] top-3 h-px bg-neutral-300" />
           <div className="absolute left-[calc(100%/24)] top-3 h-px w-[66.6667%] bg-gradient-to-r from-[#ff715f] via-[#ff5ebb] to-[#9188ff]" />
