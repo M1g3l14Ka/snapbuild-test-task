@@ -9,10 +9,24 @@ import { useCases } from "../../../data/data";
 export default function UseCases() {
   const [categoryIndex, setCategoryIndex] = useState(0);
   const [itemIndex, setItemIndex] = useState(0);
+  const [loadedImage, setLoadedImage] = useState<string | null>(null);
   const shouldReduceMotion = useReducedMotion();
   const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
   const category = useCases[categoryIndex];
   const activeItem = category.items[itemIndex];
+  const imageLoaded = loadedImage === activeItem.image;
+
+  useEffect(() => {
+    const images = category.items.map((item) => {
+      const image = new window.Image();
+      image.src = `${basePath}${item.image}`;
+      return image;
+    });
+
+    return () => images.forEach((image) => {
+      image.src = "";
+    });
+  }, [basePath, category.items]);
 
   useEffect(() => {
     if (shouldReduceMotion) return;
@@ -82,12 +96,18 @@ export default function UseCases() {
           </div>
 
           <div className="relative min-h-80 overflow-hidden rounded-[20px] bg-neutral-200 sm:min-h-[520px] lg:min-h-[740px]">
+            <motion.div
+              aria-hidden="true"
+              className="brand-gradient absolute inset-0"
+              animate={{ opacity: imageLoaded ? 0 : [0.45, 0.8, 0.45] }}
+              transition={{ duration: 1.4, repeat: imageLoaded ? 0 : Infinity, ease: "easeInOut" }}
+            />
             <AnimatePresence initial={false} mode="wait">
               <motion.div
                 key={activeItem.image}
                 className="absolute inset-0"
                 initial={shouldReduceMotion ? false : { opacity: 0, scale: 0.985 }}
-                animate={{ opacity: 1, scale: 1 }}
+                animate={{ opacity: imageLoaded ? 1 : 0, scale: imageLoaded ? 1 : 0.985 }}
                 exit={shouldReduceMotion ? undefined : { opacity: 0, scale: 1.01 }}
                 transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
               >
@@ -97,6 +117,7 @@ export default function UseCases() {
                   fill
                   sizes="(max-width: 1024px) 100vw, 72vw"
                   className="object-cover"
+                  onLoad={() => setLoadedImage(activeItem.image)}
                 />
               </motion.div>
             </AnimatePresence>
